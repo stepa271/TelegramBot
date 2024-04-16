@@ -21,6 +21,72 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     @Override
     public void onUpdateEventReceived(Update updateEvent) {
+        // шаг 1: отобразим начало игры - взломать холодильник
+        if (getMessageText().equals("/start")){
+            setUserGlory(0);
+            sendPhotoMessageAsync("step1pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_1_TEXT,Map.of("Взлом холодильника","button1"));
+        }
+        if(getCallbackQueryButtonKey().equals("button1")){
+            addUserGlory(20);
+            sendPhotoMessageAsync("step2pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_2_TEXT,
+                    Map.of("Съесть сосиску! +25 к славе","button2",                            "Взять рыбку! +20 к славе","button3",
+                            "Скинуть банку с огурцами! +20 к славе","button4"));        }
+        // шаг 2: взломать робот-пылесос
+        if (getCallbackQueryButtonKey().equals("button2")){
+            addUserGlory(25);
+            sendPhotoMessageAsync("step3pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }
+        if (getCallbackQueryButtonKey().equals("button3")){
+            addUserGlory(20);
+            sendPhotoMessageAsync("step3pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }
+        if (getCallbackQueryButtonKey().equals("button4")){
+            addUserGlory(20);
+            sendPhotoMessageAsync("step3pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }
+        if(getCallbackQueryButtonKey().equals("button20")){
+            addUserGlory(20);
+            sendPhotoMessageAsync("step4pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_4_TEXT,                    Map.of("Отправить робота за едой! +30 к славе","button41",
+                            "Прокатиться на роботе! +10 к славе","button42",                            "Убежать! +5 к славе","button43"));
+        }
+        // шаг 3:  взламываем камеру Go-Pro
+        if (getCallbackQueryButtonKey().equals("button41")){
+            addUserGlory(30);
+            sendPhotoMessageAsync("step5pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
+        }
+        if (getCallbackQueryButtonKey().equals("button42")){
+            addUserGlory(10);
+            sendPhotoMessageAsync("step5pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
+        }        if (getCallbackQueryButtonKey().equals("button43")){
+            addUserGlory(5);
+            sendPhotoMessageAsync("step5pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
+        }
+
+        if(getCallbackQueryButtonKey().equals("button50")){
+            sendPhotoMessageAsync("step6pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_6_TEXT, Map.of("Надеть Go-Pro! и тайно включить +40 к славе","button60"));
+        }
+
+        // шаг 4: взламываем компьютер
+        if(getCallbackQueryButtonKey().equals("button60")){
+            sendPhotoMessageAsync("step7pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_7_TEXT, Map.of("Взломать компьютер! +50 к славе","button70"));
+        }
+        // шаг 5: идем хвастаться другим котам
+        if(getCallbackQueryButtonKey().equals("button70")){
+            sendPhotoMessageAsync("step8pic");
+            sendTextMessageAsync(TelegramBotContent.STEP_8_TEXT,Map.of("Ураа-а-а-а!","/stop"));
+        }
+        if(getCallbackQueryButtonKey().equals("/stop")){
+            sendPhotoMessageAsync("final_pic");
+            sendTextMessageAsync(TelegramBotContent.FINAL_TEXT);
+        }
 
 
     }
