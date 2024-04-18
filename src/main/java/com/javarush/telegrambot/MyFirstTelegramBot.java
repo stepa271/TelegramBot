@@ -21,64 +21,8 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     @Override
     public void onUpdateEventReceived(Update updateEvent) {
-     /*   if (getMessageText().equals("/start")){
-            setUserGlory(0);
-            sendPhotoMessageAsync("step1pic");
-            sendTextMessageAsync(TelegramBotContent.STEP_1_TEXT,Map.of("Взлом холодильника","button1"));
-        }*/  /*  if(getCallbackQueryButtonKey().equals("button1")){
-            addUserGlory(20);
-            sendPhotoMessageAsync("step2pic");
-            sendTextMessageAsync(STEP_2_TEXT.replace("%s",String.valueOf(getUserGlory())),
-                    Map.of("Съесть сосиску! +25 к славе","button2",
-                            "Взять рыбку! +20 к славе","button3",
-                            "Скинуть банку с огурцами! +20 к славе","button4"));        }*/  /* if (getCallbackQueryButtonKey().equals("button2")){
-            addUserGlory(25);
-            sendPhotoMessageAsync("step3pic");
-            sendTextMessageAsync(STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }*/     /*   if (getCallbackQueryButtonKey().equals("button3")){
-            addUserGlory(20);
-            sendPhotoMessageAsync("step3pic");
-            sendTextMessageAsync(STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }*/      /*   if (getCallbackQueryButtonKey().equals("button4")){
-            addUserGlory(20);
-            sendPhotoMessageAsync("step3pic");
-            sendTextMessageAsync(STEP_3_TEXT,Map.of("Взломать робот-пылесос! +15 к славе","button20"));        }*/ /* if(getCallbackQueryButtonKey().equals("button20")){
-            addUserGlory(20);
-            sendPhotoMessageAsync("step4pic");
-            sendTextMessageAsync(STEP_4_TEXT.replace("%s",String.valueOf(getUserGlory())),
-                    Map.of("Отправить робота за едой! +30 к славе","button41",
-                            "Прокатиться на роботе! +10 к славе","button42",
-                            "Убежать! +5 к славе","button43"));        }*/  /*  if (getCallbackQueryButtonKey().equals("button41")){
-            addUserGlory(30);
-            sendPhotoMessageAsync("step5pic");
-            sendTextMessageAsync(STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
-        }
-        if (getCallbackQueryButtonKey().equals("button42")){
-            addUserGlory(10);
-            sendPhotoMessageAsync("step5pic");
-            sendTextMessageAsync(STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
-        }
-        if (getCallbackQueryButtonKey().equals("button43")){
-            addUserGlory(5);
-            sendPhotoMessageAsync("step5pic");
-            sendTextMessageAsync(STEP_5_TEXT,Map.of("Взломать Go-Pro","button50"));
-        }
-        if(getCallbackQueryButtonKey().equals("button50")){
-            sendPhotoMessageAsync("step6pic");
-            addUserGlory(25);
-            sendTextMessageAsync(STEP_6_TEXT.replace("%s",
-                    String.valueOf(getUserGlory())), Map.of("Надеть Go-Pro! и тайно включить +40 к славе","button60"));        }*/  /* if(getCallbackQueryButtonKey().equals("button60")){
-            addUserGlory(40);
-            sendPhotoMessageAsync("step7pic");
-            sendTextMessageAsync(STEP_7_TEXT, Map.of("Взломать компьютер! +50 к славе","button70"));        }*/   /*  if(getCallbackQueryButtonKey().equals("button70")){
-            sendPhotoMessageAsync("step8pic");
-            addUserGlory(50);
-            int a=getUserGlory();
-            sendTextMessageAsync(STEP_8_TEXT.replace("%s",
-                    String.valueOf(getUserGlory())),Map.of("Ураа-а-а-а!","/stop"));        }*/
-
-       if(getMessageText().equals("/start")){createMessageMyMetod("/start",0,"step1pic",STEP_1_TEXT,Map.of("Взлом холодильника","button1"));}
+        if(getMessageText().equals("/start")){createMessageMyMetod("/start",0,"step1pic",STEP_1_TEXT,Map.of("Взлом холодильника","button1"));}
         if(!getCallbackQueryButtonKey().equals(null)){tukTukSendMessage();}
-     //   if(!getMessageText().equals(null)){tukTukSendMessage();}
-
        if(getCallbackQueryButtonKey().equals("/stop")){
            createMessageMyMetod("/stop",10,"final_pic",FINAL_TEXT,Map.of("Финиш!",""));
         }
@@ -97,15 +41,11 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         SendPhoto photoMessage=createPhotoMessage(picName);
         executeAsync(photoMessage);
         sendTextMessageAsync(stepText.replace("%s",
-                String.valueOf(getUserGlory())), buttons);
-
-}
-
+                String.valueOf(getUserGlory())), buttons);}
 
 private void tukTukSendMessage(){
         String text =getCallbackQueryButtonKey();
         switch (text){
-
 
             case ("button1"):createMessageMyMetod("button1",20,"step2pic",STEP_2_TEXT,Map.of("Съесть сосиску! +25 к славе","button2",
                     "Взять рыбку! +20 к славе","button3", "Скинуть банку с огурцами! +20 к славе","button4"));break;
