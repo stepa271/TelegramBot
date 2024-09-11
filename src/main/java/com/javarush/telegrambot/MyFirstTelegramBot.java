@@ -13,8 +13,8 @@ import static com.javarush.telegrambot.TelegramBotContent.*;
 
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
-    public static final String NAME = "Flamehelp_bot"; // TODO: добавьте имя бота в кавычках
-    public static final String TOKEN = "1126645206:AAGggrxOtCai3r-LYr4c3LYB43Nkp4p_fws"; //TODO: добавьте токен бота в кавычках
+    public static final String NAME = SecurityNote.getNAME(); // TODO: добавьте имя бота в кавычках
+    public static final String TOKEN = SecurityNote.getTOKEN(); //TODO: добавьте токен бота в кавычках
 
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
