@@ -1,17 +1,21 @@
 Небольшой телеграмм-бот в формате простой игры с картинками. 
 Разработано при прохождении занятия от ДжаваРаш. 
-Токен телеграмм-бота сокрыт в классе SecurityNote и не выгружен в репозиторий. 
+Токен телеграмм-бота сокрыт в классе SecurityNote (класс помещаем в основной пакет с другими классами. ) и не выгружен в репозиторий. 
 
+```java 
 
 public class SecurityNote {
     private static final String NAME = "Имя бота"; // TODO: добавьте имя бота в кавычках
     private static final String TOKEN = "Ваш токен"; //TODO: добавьте токен бота в кавычках
 
-    public static String getNAME() {
+ public static String getNAME() {
         return NAME;
     }
 
-    public static String getTOKEN() {
+public static String getTOKEN() {
         return TOKEN;
     }
-}  Класс помещаем в основной пакет с другими классами. 
+}  
+
+
+
